@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background-color: white;
+    color: black;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+  }
+  
+  .phone-link {
+    font-size: 4rem;
+    padding: 50px auto !important;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    display: block;
+  }
+  
+  .phone-link:hover {
+    color: #333;
+  }
+  
+  p {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    display: block;
+  }
+  
+  button {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    font-family: 'Comic Sans MS', cursive, sans-serif !important;
+    background-color: white;
+    border-radius: 12px;
+    border-width: 3px;
+  }
+  

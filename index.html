@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>👍 please vote dris</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js"></script>
+</head>
+<body>
+  <div class="container">
+    <p id="vote-count">votes: 0</p>
+    <a href="tel:+18886833747" class="phone-link">+1-88VOTE-DRIS</a>
+    <p>please vote for dris elamri</p>
+    <button id="vote-btn">vote</button>
+  </div>
+  <script>
+   const voteBtn = document.getElementById('vote-btn');
+    const voteCount = document.getElementById('vote-count');
+
+    window.onload = function() {
+        getVotes();
+    }
+
+    voteBtn.addEventListener('click', async () => {
+      try {
+        updateVotes();
+      } catch (err) {
+        console.error(err);
+      }
+    });
+
+    async function getVotes() {
+        const response = await fetch('/get-votes');
+        const data = await response.json();
+        voteCount.textContent = `votes: ${data.count}`;
+    }
+
+    async function updateVotes() {
+        const response = await fetch('/vote', { method: 'POST' });
+        const data = await response.json();
+        voteCount.textContent = `votes: ${data.count}`;
+    }
+
+  </script>
+</body>
+</html>
