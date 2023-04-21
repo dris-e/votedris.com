@@ -5,7 +5,7 @@
   }
   
   body {
-    font-family: 'Comic Sans MS', sans-serif;
+    font-family: 'Comic Sans MS';
     background-color: white;
     color: black;
   }
@@ -43,7 +43,7 @@
     font-size: 1.5rem;
     padding: 0.5rem 1.5rem;
     cursor: pointer;
-    font-family: 'Comic Sans MS', sans-serif !important;
+    font-family: 'Comic Sans MS' !important;
     background-color: white;
     border-radius: 12px;
     border-width: 3px;
