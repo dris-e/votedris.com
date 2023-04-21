@@ -32,18 +32,18 @@
     async function getVotes() {
         const response = await fetch('/get-votes');
         const data = await response.json();
-        voteCount.textContent = `🔴 votes: ${data.count}`;
+        voteCount.textContent = `(live) votes: ${data.count}`;
     }
 
     async function updateVotes() {
         const response = await fetch('/vote', { method: 'POST' });
         const data = await response.json();
-        voteCount.textContent = `🔴 votes: ${data.count}`;
+        voteCount.textContent = `(live) votes: ${data.count}`;
     }
 
   </script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+    /* @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap'); */
 
 * {
     margin: 0;
@@ -52,7 +52,8 @@
   }
   
   body {
-    font-family: 'Comic Neue', cursive;
+    /* font-family: 'Comic Neue', cursive; */
+    font-family: 'Comic Sans MS', cursive;
     background-color: white;
     color: black;
   }
@@ -90,7 +91,8 @@
     font-size: 1.5rem;
     padding: 0.5rem 1.5rem;
     cursor: pointer;
-    font-family: 'Comic Neue', cursive !important;
+    /* font-family: 'Comic Neue', cursive !important; */
+    font-family: 'Comic Sans MS', cursive !important;
     background-color: white;
     border-radius: 12px;
     border-width: 3px;
