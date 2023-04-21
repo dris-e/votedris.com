@@ -32,13 +32,13 @@
     async function getVotes() {
         const response = await fetch('/get-votes');
         const data = await response.json();
-        voteCount.textContent = `votes: ${data.count}`;
+        voteCount.textContent = `🔴 votes: ${data.count}`;
     }
 
     async function updateVotes() {
         const response = await fetch('/vote', { method: 'POST' });
         const data = await response.json();
-        voteCount.textContent = `votes: ${data.count}`;
+        voteCount.textContent = `🔴 votes: ${data.count}`;
     }
 
   </script>
