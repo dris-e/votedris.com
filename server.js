@@ -3,8 +3,12 @@ const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 const Vote = require('./models/Vote');
+const http = require('http');
+const { Server } = require('socket.io');
 
 const app = express();
+const server = http.createServer(app);
+const io = new Server(server);
 const port = process.env.PORT || 3001;
 
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -34,9 +38,19 @@ app.get('/get-votes', async (req, res) => {
     }
     vote.count++;
     await vote.save();
+  
+    io.emit('voteUpdate', { count: vote.count });
+  
     res.json({ count: vote.count });
   });
   
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+  io.on('connection', (socket) => {
+    console.log('connected');
+    socket.on('disconnect', () => {
+      console.log('disconnected');
+    });
+  });
+  
+  server.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+  });
